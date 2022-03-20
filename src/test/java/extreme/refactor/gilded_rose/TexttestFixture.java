@@ -4,17 +4,7 @@ public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-                // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+        Item[] items = getItems();
 
         GildedRose app = new GildedRose(items);
 
@@ -23,6 +13,26 @@ public class TexttestFixture {
             days = Integer.parseInt(args[0]) + 1;
         }
 
+        printResult(days,items,app);
+
+    }
+
+    public static Item[] getItems(){
+        return new Item[] {
+                Item.newItem("+5 Dexterity Vest", 10, 20), //
+                Item.newItem("Aged Brie", 2, 0), //
+                Item.newItem("Elixir of the Mongoose", 5, 7), //
+                Item.newItem("Sulfuras, Hand of Ragnaros", 0, 80), //
+                Item.newItem("Sulfuras, Hand of Ragnaros", -1, 80),
+                Item.newItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                Item.newItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                Item.newItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+                // this conjured item does not work properly yet ??
+                Item.newItem("Conjured Mana Cake", 3, 6)
+        };
+    }
+
+    public static void printResult(int days, Item[] items, GildedRose app){
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
